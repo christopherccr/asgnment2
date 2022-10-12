@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A combined line and column chart.",
+    "data": {"url": "https://raw.githubusercontent.com/christopherccr/asgnment2/main/deathrateclean.csv"},
+    "width": 800,
+    "height": 400,
+    "layer":[
+      {
+        "transform": [{"filter": "datum.Gender==='Males' || datum.Gender==='Females'"}],
+        "selection": {
+          "gender_highlight": {
+            "type": "multi",
+            "fields": ["Gender"],
+            "bind": "legend"
+      }
+    },
+        "mark": "bar",
+        "encoding": {
+          "y": {"field": "Death_Rate", "type": "quantitative"},
+          "x": {"field": "Year", "type": "ordinal"},
+          "color": {"field": "Gender", "type": "nominal",
+          "scale": {"range": ["#EC99B1", "#88ECFF", "#433900"]}},
+          "opacity": {
+            "condition": {"selection": "gender_highlight",     "value": 0.6}, "value": 0.2},
+          "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Gender", "type": "nominal", "title": "Gender"},
+        {"field": "Death_Rate", "type": "quantitative", "title": "Death Rate"}
+            ]
+          }
+        },
+      {
+        "transform": [{"filter": "datum.Gender==='Persons'"}],
+        "selection": {
+          "gender2_highlight": {
+            "type": "multi",
+            "fields": ["Gender"],
+            "bind": "legend"
+          }
+        },
+        "mark": "line",
+        "encoding": {
+          "x": {"field": "Year", "type": "ordinal"},
+          "y": {"field": "Death_Rate", "type": "quantitative", 
+          "scale": {"domain": [0, 13]}},
+          "color": {"field": "Gender", "type": "nominal",
+            "scale": {"range": ["#EC99B1", "#88ECFF", "#433900"]}
+          },
+          "opacity": {
+            "condition": {"selection": "gender2_highlight", "value": 0.6}, "value": 0.2},
+          "tooltip": [
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {"field": "Gender", "type": "nominal", "title": "Gender"},
+            {"field": "Death_Rate", "type": "quantitative", "title": "Death Rate"}
+          ]
+        } 
+      }
+    ]
+  }

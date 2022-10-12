@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="asgnment2.js"></script>
+  <title>Visualization Dashboard</title>
+  <style>
+    h1{
+      color: white;
+      background-color: black;
+      font-family: sans-serif;
+    }
+
+    h2{
+      color: white;
+      background-color: grey;
+      font-family: sans-serif;
+    }
+
+    p {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+  <h1>Dashboard for Traffic Accident in Australia</h1>
+  <h3>Topic Background</h3>
+  </center>
+  <p>Traffic accident has always been a trending topic since very long ago. Based on the data collected from all over the world,
+    traffic accident has given rise to tons of death cases. Thus, all of us must take this issue seriously to reduce the number of 
+    traffic accidents. There are a lot of factors causing a road accident to take place. This data visualization allows us to inspect
+    and analyse these factors.
+  </p>
+  <center>
+  <h2>Accident Value for Different Country in 2010</h2>
+  <div id="map">
+  </div>
+  <h2>Total Number of Accidents Based on Day and Time</h2>
+  <div id="line_chart">
+  </div>
+  <h2>Death Rate From Accidents By Gender From 2011 to 2020</h2>
+  <div id="combine_chart">
+  </div>
+  <h3>Conclusion</h3>
+  </center>
+  <p>Based on the analysis of visualization above, the developed country and country with more populations tend to have more accident
+    cases. Generally, road accident also happens more frequently during daytime. Lastly, the death rate for male is higher in road accident
+    as compared to female. The traffic accident can be reduced by encouraging the citizens to take public transport and enforcing the traffic 
+    law. 
+  </p>
+</body>
+
+</html>

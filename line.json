@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple bar chart with embedded data.",
+    "data": {"url": "https://raw.githubusercontent.com/christopherccr/3179_homework3/main/crashdata_cleansimple.csv"},
+    "width": 800,
+    "height": 400,
+    "params": [
+      {
+        "name": "DayNight_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Day",
+            "Night"
+          ],
+          "labels":[
+            "Show All",
+            "Day",
+            "Night"
+          ],
+          "name": "Day or Night: "
+        }
+      }
+    ],
+    "transform": [
+      {"filter": "DayNight_selection == null || datum.TimeOfDay == DayNight_selection"}
+    ],
+    "layer": [
+      {
+          "mark": {"type": "bar"},
+    "encoding": {
+      "x": {"field": "Year", "title": "Year", "type":"ordinal"},
+      "y": {"aggregate": "sum", "field": "NumberOfAccidents", "title": "Number of Accidents"},
+      "color": {"field": "TimeOfDay", "type": "nominal"},
+      "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "TimeOfDay", "type": "nominal", "title": "Time of Day"},
+      {"field": "NumberOfAccidents", "aggregate": "sum", "type": "quantitative", "title": "Number of Accidents"}
+          ]
+        }
+      },
+      {
+        "data": {
+           "values": [{}]
+        },
+        "encoding": {
+          "y": {"datum": 50}
+        },
+        "layer": [{
+          "mark": "rule"
+        }, {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "bottom",
+            "dx": -2,
+            "dy": -2,
+            "x": "width",
+            "text": "fatal"
+          }
+        }]
+      }
+    ]
+  }
+  
