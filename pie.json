@@ -1,0 +1,14 @@
+{
+    "data": {"url": "https://raw.githubusercontent.com/christopherccr/asgnment2/main/crashdatacleanv2.csv"},
+    "mark": "arc",
+    "width": 800,
+    "height": 400,
+    "encoding": {
+      "theta": {"field": "number_of_accidents", "type": "quantitative", "aggregate": "sum"},
+      "color": {"field": "national_road_type", "type": "nominal"},
+      "tooltip": [
+        {"field": "national_road_type", "type": "nominal"},
+        {"field": "number_of_accidents", "type": "quantitative", "aggregate": "sum"}
+      ]
+    }
+}
